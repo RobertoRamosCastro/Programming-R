@@ -277,3 +277,24 @@ tail(df,4)
 # funcion str(df) muestra de forma rapida la estrucutrar de la informacion almcenada
 str(df)
 summary(df)
+
+# para unir data frames lo mejor es usar rbind(df1,df2) obteniendo un dataframe con mas filas 
+df2 <- data.frame(model='Seat Ibiza FR 4.0',mpg = 22, cyl=5,disp=202,hp=100,drat=2.56,wt=3.1,
+                  qsec=15,vs=1,am=0,gear=5,carb=4) #estamos creando un nuevo modelo de coche para añadirselo a la base de datos mtcars
+df2
+df <- read.csv("mtcars.csv")
+df
+
+df <- rbind(df, df2)
+df
+# para añadir columnas
+df$newcolumn<-rep(1, nrow(df)) # df$newcolum lo q haces es crear una nueva columna con ese nombre y rep(1,nrow(df)) nos crea una replica del numero de filas en df y todos sus observaciones seran igua la 1
+df
+df[, 'copyofhp'] <- df$hp # otra forma de crear una nueva columna, q tendra los valores de hp, parece q $ sirve para acceder a los valores del dataframe
+df
+df$hp.gear <- df$hp / df$gear #creamos uan columna q se llama hp.gear con los valores de hp/gear
+df
+v <- 1:nrow(df) # creamos vector q tengo el numero de filas de df 
+df <- cbind(df,v) # bindeamos dataframe y vector
+df
+# todo esto son distitnas maneras de añadir columnas
