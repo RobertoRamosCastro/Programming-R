@@ -207,3 +207,73 @@ size_factor
 size_vector <- c('S','L','M','L','S','M')
 size_factor <- factor(size_vector, ordered = T, levels = c('S','M','L')) # asi le damos el orden
 size_factor
+
+#creacion de factor especificando etiquetas
+gender_leves2 <- c('M','F','-') # como se leen los datos de entrada
+gender_labels2 <- c('Male','Female', NA) # Como se etiquetan
+gender_vector2 <- c('M','F','F','M','M','-')
+gender_factor2 <- factor(gender_vector2, levels = gender_leves2, labels = gender_labels2)
+gender_factor2
+
+#obtener los niveles 
+levels(gender_factor)
+#comprobar si existe un nivel
+any(levels(size_factor) %in% c('L','S'))
+#aádir nuevos niveles
+levels(size_factor) <- c(levels(size_factor),'XS')
+size_factor
+# reordenar niveles
+size_factor <- factor(size_factor, ordered = T, levels(size_factor)[c(4,1:3,5)])
+size_factor
+#renombrar un level
+levels(size_factor)[1] <- 'ExtraL'
+
+# eliminar niveles no usados
+size_factor <- size_factor[drop<- T]
+droplevels(size_factor)
+
+# traps sobre factores
+# al usar read.tables y read.csv usaremos el parametro stringAsFactors = FALSE porque si no nos pone los datos como factores
+
+# EJ4
+animals_vector <- c("Elef","Jirafa","Perro","cat")
+tem_vector <- c("High","Low","Medium","Low")
+
+# crear dos factores, uno sin orden y otro con orden
+animales_factor <- factor(animals_vector)
+animales_factor
+
+tem_factor <- factor(tem_vector, ordered = T, levels = c("Low","Medium","High"))
+tem_factor
+
+
+# modifica los niveles de l siguiente facotr para q sean femanle y male
+# presta atencion al orden en q los establces
+survey_actor <- c("M","F","F","M","M")
+factor_survey_actor <- factor(survey_actor)
+levels(factor_survey_actor) <- c("Female","Male")
+
+factor_survey_actor
+
+# Haz summary sobre el ector y sobre el factor
+summary(survey_actor)
+summary(factor_survey_actor) #contear el numero de datos en una etiqueta
+
+# Crear un facotr ordenador para el siguiente vector
+speed_vector <- c("Fast","Slow","Slow","Fast","Ultra-Fast")
+speed_factor <- factor(speed_vector, ordered = T, levels = c("Slow","Fast","Ultra-Fast"))
+speed_factor[2] > speed_factor[5]
+
+# Crear dataframe a mano
+empy <- data.frame()
+
+c1 <- 1:10 # vector de enteros
+c2 <- letters[1:10] # vector de letras
+df <- data.frame(col1 = c1, col2=c2)
+df
+tail(df,4)
+# funcion head(df, X) devuelve los primeros X valores del dataframe
+# funcion tail(df, X) devuelve los ultimos X valores del dataframe
+# funcion str(df) muestra de forma rapida la estrucutrar de la informacion almcenada
+str(df)
+summary(df)
