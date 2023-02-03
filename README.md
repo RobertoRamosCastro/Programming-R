@@ -1,2 +1,2 @@
 # Programming R
- 
+Variables, structures, logic operations, matrices, arrays, vectors etc...  
