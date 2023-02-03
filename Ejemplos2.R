@@ -69,3 +69,12 @@ planets_df$diameter[order(diameter)]
 
 # descendentemente
 planets_df$diameter[order(diameter, decreasing = T)]
+
+
+my_list <- list(1,2,3,4,5)
+class(my_list[3]) # devuelve una lista
+class(my_list[[3]])# devuelve un numeric en este caso, pero creo q depende de lo q le metas te devuelve su clase
+#la mayorai de veces usaremos dobles corchetes o $
+
+## EJ6
+
