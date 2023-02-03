@@ -77,4 +77,32 @@ class(my_list[[3]])# devuelve un numeric en este caso, pero creo q depende de lo
 #la mayorai de veces usaremos dobles corchetes o $
 
 ## EJ6
+actors<- c("Jack", "Sheely","Danny","Scatman","Barry")
+scores <- c(4.5,4.0,5.0)
+comments <- c("Best Horror Film I Have Ever Seen","A truly brillian and scary film from Stanley Kubrick","A masterpiece of psychological horro")
+sources<-c("IMDb1","IMDb2","IMDb3")
+reviews<- data.frame(scores,sources,comments)
+
+reviews
+
+# Crea una lista q contenga los siguitnes components:
+  # 1. moviename: The Shinning
+  # 2. actors: el vector de actores
+  # 3. reviews: el data frame de reviews
+shinning_list <- list(moviename= "The Shinning", actores=actors, reviews=reviews)
+shinning_list
+
+# selecciona el ultimo ctor del vector de ac tores de la lsita
+shinning_list[["actores"]][5]
+
+#Selecciona la segunda de las criticas del dat frame de reviews de la lista
+shinning_list[["reviews"]][2,]
+
+# Añade un nuevo elemento a la lista
+  # 1. year: 1980
+shinning_list <- c(shinning_list, year=1980)
+shinning_list
+
+
+str(shinning_list)
 
