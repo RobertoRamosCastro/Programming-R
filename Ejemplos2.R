@@ -23,3 +23,49 @@ full.join <- merge(df.x,df.y, by=c('col1'), all = T) # asi unificamos por comple
 full.join
 #borrar variables
 rm(join)
+
+
+##Ejercicios 5
+planets <- c("Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune")
+type <- c("Terrestral planet","Terrestral planet","Terrestral planet","Terrestral planet","Terrestral planet","Terrestral planet","Terrestral planet","Terrestral planet")
+diameter <- c(0.382,0.949,1,0.532,11.209,9.449,4.007,3.883)
+rotation <- c(58.64,-243.02,1,1.03,0.41,0.43,-0.72,0.67)
+rings <- c(F,F,F,F,T,T,T,T)
+
+planets_df <- data.frame(planets, type, diameter,rotation, rings)
+planets_df
+
+# Compruebo contenido del df
+str(planets_df)
+summary(planets_df)
+
+# selecciona la informacion de los tres primeros planetsa (mas cercanos al sol)
+tres_primeros<-planets_df[1:3,]
+tres_primeros
+# selecciona 3 ultimos
+tres_ultimos<-tail(planets_df,3)
+tres_ultimos
+
+View(planets_df) # visualizar contenidos en tipo tabla
+
+#Selecciona la columna diameter de los ultimos seis planetas (los mas lejanos al sol)
+tail(planets_df$diameter,6)
+
+# selecciona solo planetas q tienen anillos
+planets_rings <- planets_df[planets_df$rings,]
+planets_rings
+
+# seleccionar los planetas que tiene un diametro inferior al de la tierra
+diameter_menor_1 <- planets_df[planets_df$diameter < 1,]
+diameter_menor_1
+
+# La funcion order devuevle las posiciones de un vector ordenado ascendentemente
+a<-c(4,10,3)
+order(a) #te dice como deberias de cober las posiciones 
+a[order(a)]
+
+# ordenamos el data frame segun el diametro de los planetas ascendentemente
+planets_df$diameter[order(diameter)]
+
+# descendentemente
+planets_df$diameter[order(diameter, decreasing = T)]
