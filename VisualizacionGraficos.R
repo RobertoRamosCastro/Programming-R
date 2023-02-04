@@ -20,8 +20,19 @@ ggplot(data=diamonds,mapping = aes(x=carat,y=price, col=color)) + geom_point(alp
 data("iris")
 str(iris)
 
-gg<- ggplot(data=iris, mapping=aes(x=Sepal.Length,y=Sepal.Width, col=Species)) # esto es lo de hacerlo por capas
+gg<- ggplot(data=iris, mapping=aes(x=Sepal.Length,y=Sepal.Width)) # esto es lo de hacerlo por capas
 gg2 <- gg + geom_point()# vamos creando distintas capas y le vamos sumando cosas
 gg3 <- gg + geom_boxplot()
 gg4 <- gg + geom_contour_filled()
-gg + geom_point(size=3) + geom_line(size=0.5) 
+gg + geom_point(size=3, col="lightblue") + geom_line(aes(col=Species, linetype=Species)) #podemos meter aes en la geometira asi el color q elijamos de otra variable unicamente estara en esa figura geometrica
+
+##
+library(ISLR)
+data(Carseats)
+str(Carseats)
+
+gg_bars <- ggplot(data=Carseats, aes(x=Sales))
+gg_bars + geom_histogram(bins=50,fill='red')
+gg_bars + geom_bar(col='darkblue', size=10)
+
+##
