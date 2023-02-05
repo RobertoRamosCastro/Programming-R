@@ -54,4 +54,43 @@ ggplot(diamonds, aes(x=carat, y=price, alpha=clarity))+ #en funcion de la clarid
 # Transparencia como atributo: dar un valor concreto de alpha entre 0 y 1
 ggplot(diamonds, aes(x=carat, y=price))+
   geom_point(alpha=0.4,aes(col=depth))
-              
+
+# Aesthetics de color
+# Relleno como aesthetic y como atributo
+ggplot(diamonds, aes(x=carat, y=price, fill='orange'))+
+  geom_point()
+ggplot(diamonds, aes(x=carat, y=price))+
+  geom_point(fill='orange')
+
+# Aesthetics como forma
+# continua
+ggplot(diamonds, aes(x=carat, y=price,shape=x*y*z))+
+  geom_point() # la forma no puede ser de una variable continua
+#discreta
+ggplot(diamonds, aes(x=carat, y=price,shape=clarity))+
+  geom_point() 
+#discreta
+ggplot(diamonds, aes(x=carat, y=price))+
+  geom_point(shape=1) # el valor 1 significa el primer valor de la lista de formas, es decir hay mas
+
+# Tipo de linea como aesthetic, conitnua
+ggplot(diamonds, aes(x=carat, y=price,linetype=x*y*z))+
+  geom_point() # tampoco se puede con una continua
+# discreta
+ggplot(diamonds, aes(x=carat, y=price,linteype=cut, col=cut))+
+  geom_smooth(se=F,size=1)
+#tipo de linea como atributo
+ggplot(diamonds, aes(x=carat, y=price, col=cut))+
+  geom_smooth(se=F,size=1, linetype="dotdash")
+
+
+#Aesthetic de size
+#continua
+ggplot(diamonds, aes(x=carat, y=price, size=price))+
+  geom_point()
+#discreta
+ggplot(diamonds, aes(x=carat, y=price, size=cut))+
+  geom_point()
+#como atributo
+ggplot(diamonds, aes(x=carat, y=price, size=cut))+
+  geom_point(size=2)
