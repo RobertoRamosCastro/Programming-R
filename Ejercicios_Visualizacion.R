@@ -211,4 +211,4 @@ gg_disc<- ggplot(diamonds,aes(x=clarity, y=price))+
 gg_disc+
   scale_y_continuous(limits = c(1000,2000))+
   scale_x_discrete(limits=c("I1","SI2","VVS2","IF"),
-                   labels=c("Bad","Normal","Good","Ideal"))+
+                   labels=c("Bad","Normal","Good","Ideal"))
